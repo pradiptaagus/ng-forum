@@ -31,6 +31,8 @@ export class CardItemComponent implements OnInit {
 
   data: Topic | undefined;
 
+  isTrending: boolean = false;
+
   constructor(private topicService: TopicService) {}
 
   ngOnInit(): void {
@@ -46,6 +48,9 @@ export class CardItemComponent implements OnInit {
   getDetail(id: number) {
     this.topicService.getTopicDetail(id).subscribe((data) => {
       this.data = data;
+      if (data?.descendants && data.descendants > 20) {
+        this.isTrending = true;
+      }
     });
   }
 

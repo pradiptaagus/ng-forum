@@ -82,10 +82,7 @@
         }"
         *ngIf="!time"
       />
-      <app-badge
-        *ngIf="data && data.descendants > 20"
-        style="align-self: center"
-        class="badge"
+      <app-badge *ngIf="isTrending" style="align-self: center" class="badge"
         >Trending</app-badge
       >
       <ngx-skeleton-loader
@@ -100,7 +97,7 @@
       />
     </div>
     <app-comment-button
-      [total]="data.descendants"
+      [total]="data.descendants || 0"
       (onClick)="handleClickCommentBtn()"
       *ngIf="data"
       class="comment-button"
