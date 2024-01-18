@@ -1,0 +1,60 @@
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  .inner {
+    padding: 10px 16px;
+    background-color: #F4F4F4;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-radius: 6px;
+  }
+
+  .name {
+    color: #242424;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+  }
+
+  .comment {
+    color: #242424;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  .timestamp {
+    font-size: 14px;
+    color: #242424;
+    font-weight: 400;
+    padding-left: 16px;
+    line-height: 20px;
+  }
+
+  .dencendant-btn {
+    appearance: none;
+    border: none;
+    background-color: #FFFFFF;
+    text-decoration: underline;
+    color: #242424;
+    cursor: pointer;
+  }
+
+  .dencendant-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 16px 16px 0px;
+
+    .hide {
+      display: none;
+    }
+
+    @media (max-width: 640px) {
+      padding: 16px 16px 16px 0px;
+    }
+  }
+}

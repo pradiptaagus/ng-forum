@@ -1,0 +1,168 @@
+<app-modal (onClickBg)="handleClose()" [isShow]="isShow">
+  <div class="modal-header">
+    <div class="title-group">
+      <h2 class="title">{{ data?.title }}</h2>
+      <ngx-skeleton-loader
+        [theme]="{
+          height: '16px',
+          margin: 0,
+          width: '75%'
+        }"
+        *ngIf="!data"
+      />
+      <ngx-skeleton-loader
+        [theme]="{
+          height: '16px',
+        }"
+        *ngIf="!data"
+      />
+    </div>
+    <div class="header-property">
+      <div class="properties">
+        <div class="property" *ngIf="data">
+          {{ data.score }} points by {{ data.by }}
+        </div>
+        <ngx-skeleton-loader
+          [theme]="{
+            height: '12px',
+            width: '108px',
+            margin: 0
+          }"
+          *ngIf="!data"
+        />
+        <div class="property-spacer"></div>
+        <div class="property" *ngIf="data">codeberg.org</div>
+        <ngx-skeleton-loader
+          [theme]="{
+            height: '12px',
+            width: '77px',
+            margin: 0
+          }"
+          *ngIf="!data"
+        />
+        <div class="property-spacer"></div>
+        <div class="property" *ngIf="data">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+          >
+            <path
+              d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"
+              stroke="#9B9B9B"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M8 4.66666V7.99999H11.3333"
+              stroke="#9B9B9B"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span>{{ time }}</span>
+        </div>
+        <ngx-skeleton-loader
+          [theme]="{
+            height: '12px',
+            width: '108px',
+            margin: 0,
+            'margin-top': '12px'
+          }"
+          *ngIf="!time"
+        />
+      </div>
+      <div class="total-comment" *ngIf="data">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+        >
+          <path
+            d="M14 8C14 11.3137 11.3137 14 8 14C6.81929 14 5.71824 13.659 4.78998 13.07L2 14L2.92999 11.21C2.34104 10.2818 2 9.18071 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8Z"
+            stroke="#242424"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M10.6667 8H10.6687V8.002H10.6667V8Z"
+            stroke="#242424"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M8 8H8.002V8.002H8V8Z"
+            stroke="#242424"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M5.33325 8H5.33525V8.002H5.33325V8Z"
+            stroke="#242424"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span>{{ data.descendants }} Comment</span>
+      </div>
+      <ngx-skeleton-loader
+        [theme]="{
+          height: '12px',
+          width: '96px',
+          margin: 0,
+          'margin-top': '12px'
+        }"
+        *ngIf="!data"
+      />
+    </div>
+    <button class="close-btn" (click)="handleClose()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          d="M18 18L6 6"
+          stroke="#242424"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M18 6L6 18"
+          stroke="#242424"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+    <hr />
+  </div>
+  <div class="modal-body">
+    <div class="list">
+      <app-comment *ngIf="!data" />
+      <app-comment *ngIf="!data" />
+
+      <app-comment
+        *ngFor="let item of data?.kids"
+        [commentId]="item"
+        [parentId]="topicId"
+      ></app-comment>
+
+      <div class="message" *ngIf="data?.descendants === 0">
+        There's no comment availble currently.
+      </div>
+    </div>
+  </div>
+</app-modal>

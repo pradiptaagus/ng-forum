@@ -1,0 +1,64 @@
+.card-item-mobile {
+  padding: 18px 18px 14px 18px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  box-shadow: 0px 2px 6px 0px rgba(79, 97, 123, 0.08);
+  border-radius: 6px;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+
+    .title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .title {
+      font-size: 16px;
+      font-weight: 500;
+      color: #242424;
+      line-height: 22px;
+    }
+  }
+
+  .properties {
+    display: flex;
+    justify-content: flex-start;
+    gap: 13px;
+    color: #808080;
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .property {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .property-spacer {
+    border-right: 1px solid #D9D9D9;
+    flex-shrink: 0;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  hr {
+    width: 100%;
+    border-width: 0 0 1px 0;
+    display: block;
+    border-color: #D9D9D9;
+    border-style: solid;
+  }
+}

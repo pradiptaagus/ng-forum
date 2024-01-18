@@ -1,0 +1,118 @@
+<div class="card-item-mobile">
+  <div class="header">
+    <div class="title-group">
+      <h2 class="title" *ngIf="!!data">{{ data.title }}</h2>
+      <ngx-skeleton-loader
+        class="title-skeleton-1"
+        [theme]="{
+          height: '16px',
+          margin: 0,
+          width: '75%'
+        }"
+        *ngIf="!data"
+      />
+      <ngx-skeleton-loader
+        class="title-skeleton-2"
+        [theme]="{
+          height: '16px',
+        }"
+        *ngIf="!data"
+      />
+    </div>
+    <div class="properties">
+      <div *ngIf="data" class="property score">
+        {{ data.score }} points by {{ data.by }}
+      </div>
+      <ngx-skeleton-loader
+        class="score-skeleton"
+        [theme]="{
+          height: '12px',
+          width: '108px',
+          margin: 0
+        }"
+        *ngIf="!data"
+      />
+      <div class="property-spacer"></div>
+      <div *ngIf="data" class="property company">codeberg.org</div>
+      <ngx-skeleton-loader
+        class="company-skeleton"
+        [theme]="{
+          height: '12px',
+          width: '77px',
+          margin: 0
+        }"
+        *ngIf="!data"
+      />
+    </div>
+  </div>
+  <hr />
+  <div class="footer">
+    <div class="properties">
+      <div class="property time" *ngIf="time">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+        >
+          <path
+            d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z"
+            stroke="#9B9B9B"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M8 4.66666V7.99999H11.3333"
+            stroke="#9B9B9B"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span>{{ time }}</span>
+      </div>
+      <ngx-skeleton-loader
+        class="time-skeleton"
+        [theme]="{
+          height: '12px',
+          width: '108px',
+          margin: 0,
+          'margin-top': '12px'
+        }"
+        *ngIf="!time"
+      />
+      <app-badge
+        *ngIf="data && data.descendants > 20"
+        style="align-self: center"
+        class="badge"
+        >Trending</app-badge
+      >
+      <ngx-skeleton-loader
+        class="badge-skeleton"
+        [theme]="{
+          height: '12px',
+          width: '77px',
+          margin: 0,
+          'margin-top': '12px'
+        }"
+        *ngIf="!data"
+      />
+    </div>
+    <app-comment-button
+      [total]="data.descendants"
+      (onClick)="handleClickCommentBtn()"
+      *ngIf="data"
+      class="comment-button"
+    ></app-comment-button>
+    <ngx-skeleton-loader
+      class="comment-button-skeleton"
+      [theme]="{
+        height: '32px',
+        width: '143px',
+        margin: 0
+      }"
+      *ngIf="!data"
+    />
+  </div>
+</div>

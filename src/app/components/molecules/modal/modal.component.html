@@ -1,0 +1,6 @@
+<div class="modal-wrapper" [class.active]="isShow">
+  <div class="modal">
+    <ng-content></ng-content>
+  </div>
+  <div class="modal-overlay" (click)="handleClickBg()"></div>
+</div>

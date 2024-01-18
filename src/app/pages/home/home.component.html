@@ -1,0 +1,25 @@
+<app-navbar [fixed]="true" />
+<div class="wrapper">
+  <div
+    class="list"
+    infinite-scroll
+    [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollUpDistance]="scrollUpDistance"
+    [infiniteScrollThrottle]="throttle"
+    (scrolled)="onScrollDown($event)"
+  >
+    <div *ngIf="!renderedTopicIdList">
+      <app-card-item />
+      <app-card-item />
+      <app-card-item />
+    </div>
+
+    <app-card-item
+      *ngFor="let item of renderedTopicIdList"
+      [topicId]="item"
+      (onClickCommentBtn)="handleShowDetail(item)"
+    ></app-card-item>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

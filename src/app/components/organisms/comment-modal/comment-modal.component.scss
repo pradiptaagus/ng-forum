@@ -1,0 +1,125 @@
+.modal-header {
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  position: relative;
+
+  @media (max-width: 640px) {
+    gap: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .title {
+    font-size: 20px;
+    color: #242424;
+    font-weight: 700;
+    line-height: 26px;
+    padding-bottom: 8px;
+  }
+
+  .header-property {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 8px;
+  }
+
+  .properties {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 13px;
+    color: #808080;
+    font-size: 12px;
+    font-weight: 400;
+
+    @media (max-width: 640px) {
+      gap: 8px;
+    }
+  }
+
+  .property {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .property-spacer {
+    border-right: 1px solid #D9D9D9;
+  }
+
+  @media (max-width: 640px) {
+    .property {
+      width: 100%;
+    }
+
+    .property-spacer {
+      display: none;
+      width: 100%;
+    }
+  }
+
+  .total-comment {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #242424;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 7px;
+    right: 12px;
+    appearance: none;
+    border: none;
+    background-color: #FFFFFF;
+    cursor: pointer;
+  }
+
+  hr {
+    border-width: 0 0 1px 0;
+    border-color: #D9D9D9;
+    border-style: solid;
+    display: block;
+    width: 100%;
+  }
+}
+
+.modal-body {
+  padding: 0 0px 30px 0px;
+
+  @media (max-width: 640px) {
+    padding: 0px 0px 16px 0px;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 400px;
+    overflow: auto;
+    padding: 0px 30px 0px 30px;
+
+    @media (max-width: 640px) {
+      padding: 0px 16px 0px 16px;
+    }
+  }
+}
+
+.message {
+  font-size: 14px;
+  color: #808080;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}

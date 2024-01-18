@@ -1,0 +1,47 @@
+<div class="comment-container">
+  <div class="inner">
+    <h4 class="name" *ngIf="data">{{ data.by }}</h4>
+    <ngx-skeleton-loader
+      id="name-skeleton"
+      [theme]="{
+        height: '12px',
+        width: '133px',
+        'background-color': '#e4e4e4'
+      }"
+      *ngIf="!data"
+    />
+    <p class="comment" [innerHTML]="data.text" *ngIf="data"></p>
+    <ngx-skeleton-loader
+      id="comment-skeleton"
+      count="3"
+      [theme]="{
+        height: '12px',
+        'background-color': '#e4e4e4'
+      }"
+      *ngIf="!data"
+    />
+  </div>
+  <div class="timestamp">{{ time }}</div>
+  <ngx-skeleton-loader
+    id="time-skeleton"
+    [theme]="{
+      height: '12px',
+      width: '108px',
+      margin: 0,
+    }"
+    *ngIf="!time"
+  />
+
+  <div *ngIf="data?.kids?.length" style="padding-left: 24px">
+    <div class="dencendant-list" *ngIf="isShowDencendant">
+      <app-comment
+        [style.display]="isShowDencendant ? 'block' : 'none'"
+        *ngFor="let item of data?.kids"
+        [commentId]="item"
+      ></app-comment>
+    </div>
+    <button class="dencendant-btn" (click)="toggleDencendantVisibility()">
+      {{ isShowDencendant ? "Hide reply" : "Show reply" }}
+    </button>
+  </div>
+</div>
